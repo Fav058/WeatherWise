@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="A simple weather planner for checking local conditions and comparing the next five days">
+        <title>WeatherWise | Local Weather Planner</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="app.js" defer></script>
+    </head>
+    <body>
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="WeatherWise home">
+            <span class="brand-mark" aria-hidden="true">W</span>
+            <span>WeatherWise</span>
+        </a>
+        <span class="header-note"> A practical local weather planner</span>
+      </header>
+        <main id="top" class="page-shell">
+            <section class="intro" aria-labelledby="page-title">
+                <p class="eyebrow">PLAN YOUR WEEK</p>
+                <h1 id="page-title">Weather, made useful.</h1>
+                <p class="intro-copy">Look up a city, check current conditions, and compare the five-day outlook before you head out.</p>
+            </section>
+
+            <section class="search-panel" aria-labelledby="search-heading">
+                <div>
+                    <h2 id="search-heading">Find a location </h2>
+                    <p class="muted">Search by city name. Add a country to narrow the results, like "Springfield, Illinois".</p>
+                </div>
+                <form id="search-form" class="search-form">
+                    <label class="sr-only" for="city-input">City or place name</label>
+                    <input id="city-input" name="city" type="search" minlength="2" maxlength="80" placeholder="Try Seattle or Tokyo" autocomplete="off" required>
+                    <button id="search-button" type="submit">Search</button>
+                </form>
+
+                <p id="status" class="status" role="status" aria-live="polite">Enter a city to get started</p>
+                <div id="location-results" class="location-results" aria-label="Matching Locations"></div>
+            </section>
+
+            <section id="weather-section" class="weather-section" hidden aria-labelledby="location-title">
+                <div class="section-heading">
+
+                    <div>
+                        <p class="eyebrow">LOCAL CONDITIONS</p>
+                    <h2 id="location-title">Weather</h2>
+                        <p id="updated-at" class="muted"></p>
+                    </div>
+                    <span id="weather-badge" class="weather-badge">loading</span>
+                </div>
+
+                <div class="current-grid">
+                    <article class="temperature-card">
+                        <p class="card-label">RIGHT NOW</p>
+                        <div class="temperature-line">
+                            <span  id="current-temp">---</span>
+                            <span  class="degree">°C</span>
+                        </div>
+                        <p id="current-description" class="condition-text">Current conditions</p>
+                    </article>
+
+                    <article class="metric-card">
+                        <span class="metric-icon" aria-hidden="true">Feels</span>
+                        <p class="card-label">FEELS LIKE</p>
+                        <strong id="feels-like">°C</strong>
+                    </article>
+                    <article class="metric-card">
+                        <span class="metric-icon" aria-hidden="true">Wind</span>
+                        <p class="card-label">WIND</p>
+                        <strong id="wind-speed">--km/h</strong>
+                    </article>
+
+                    <article class="metric-card">
+                        <span class="metric-icon" aria-hidden="true">Rain</span>
+                        <p class="card-label">PRECIPITATION</p>
+                        <strong id="current-rain">--mm</strong>
+                    </article>
+                </div>"
+
+                <div class="forecast-header">
+                    <div>
+                        <p class="eyebrow"> LOOK AHEAD </p>
+                        <h2> Five-day forecast </h2>
+                    </div>
+                    <div class="forecast-tools">
+                        <label for="day-filter"> Show </label>
+                        <select id="day-filter">
+                            <option value="all">All days</option>
+                            <option value="dry"> Lower rain chance (under 30%) </option>
+                        </select>
+
+                        <label for="sort-order">Sort</label>
+                        <select id="sort-order">
+                            <option value="date">By date</option>
+                            <option value="coolest">Coolest first</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p id="forecast-count" class="muted"></p>
+                <div id="forecast-list" class="forecast-list"></div>
+            </section>
+
+            <section class="project-note" aria-label="Project purpose">
+                <h2>Why this app?</h2>
+                <p>WeatherWise helps people make their everyday plans by putting current conditions and a short forecast in one place. Search another city any time, then filter or sort forecast days to compare conditions</p>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer"> Open-Meteo </a>. Location search uses data based on <a href="https://www.geonames.org/" target="_blank" rel="noreferrer">GeoNames</a>. This student's project is for non-commercial use.</p>
+        </footer>
+    </body>
+</html>
